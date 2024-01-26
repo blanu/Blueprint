@@ -14,6 +14,7 @@ public enum RValue
     case literal(LiteralValue)
     case property(Text)
     case variable(Text)
+    case type(Type)
 }
 
 extension RValue: Blueprint

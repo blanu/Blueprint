@@ -21,6 +21,9 @@ extension RValue
             case .property(let name):
                 return "self.\(name)".text
 
+            case .type(let type):
+                return "\(try type.transpile(.swift)).self".text
+
             case .variable(let variable):
                 return variable
         }
