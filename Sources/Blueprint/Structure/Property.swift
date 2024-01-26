@@ -15,10 +15,10 @@ public struct Property
     public let visibility: Visibility
     public let mutability: Mutability
     public let name: Text
-    public let type: Type
+    public let type: Type?
     public let initializer: Expression?
 
-    public init(isStatic: Bool = false, visibility: Visibility = .public, mutability: Mutability = .immutable, name: Text, type: Type, initializer: Expression? = nil)
+    public init(isStatic: Bool = false, visibility: Visibility = .public, mutability: Mutability = .immutable, name: Text, type: Type? = nil, initializer: Expression? = nil)
     {
         self.isStatic = isStatic
         self.visibility = visibility

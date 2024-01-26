@@ -27,7 +27,16 @@ extension Property
 
         let vis = try self.visibility.transpile(.swift)
         let mut = try self.mutability.transpile(.swift)
-        let type = try self.type.transpile(.swift)
+
+        let typeText: Text
+        if let type = self.type
+        {
+            typeText = ": \(try type.transpile(.swift))".text
+        }
+        else
+        {
+            typeText = ""
+        }
 
         let initText: Text
         if let initializer = self.initializer
@@ -40,7 +49,7 @@ extension Property
         }
 
         return """
-        \(i)\(staticText)\(vis)\(mut) \(self.name): \(type)\(initText)
+        \(i)\(staticText)\(vis)\(mut) \(self.name)\(typeText)\(initText)
         """.text
     }
 }
