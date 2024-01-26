@@ -19,8 +19,18 @@ extension Property
         let mut = try self.mutability.transpile(.swift)
         let type = try self.type.transpile(.swift)
 
+        let initText: Text
+        if let initializer = self.initializer
+        {
+            initText = " = \(try initializer.transpile(.swift))".text
+        }
+        else
+        {
+            initText = ""
+        }
+
         return """
-        \(i)\(vis)\(mut) \(self.name): \(type)
+        \(i)\(vis)\(mut) \(self.name): \(type)\(initText)
         """.text
     }
 }

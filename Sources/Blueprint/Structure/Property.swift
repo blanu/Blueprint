@@ -15,13 +15,15 @@ public struct Property
     public let mutability: Mutability
     public let name: Text
     public let type: Type
+    public let initializer: Expression?
 
-    public init(visibility: Visibility = .public, mutability: Mutability = .immutable, name: Text, type: Type)
+    public init(visibility: Visibility = .public, mutability: Mutability = .immutable, name: Text, type: Type, initializer: Expression? = nil)
     {
         self.visibility = visibility
         self.mutability = mutability
         self.name = name
         self.type = type
+        self.initializer = initializer
     }
 }
 
