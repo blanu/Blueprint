@@ -15,6 +15,16 @@ extension Property
     {
         let i = indent(indentation)
 
+        let staticText: Text
+        if self.isStatic
+        {
+            staticText = "static "
+        }
+        else
+        {
+            staticText = ""
+        }
+
         let vis = try self.visibility.transpile(.swift)
         let mut = try self.mutability.transpile(.swift)
         let type = try self.type.transpile(.swift)
@@ -30,7 +40,7 @@ extension Property
         }
 
         return """
-        \(i)\(vis)\(mut) \(self.name): \(type)\(initText)
+        \(i)\(staticText)\(vis)\(mut) \(self.name): \(type)\(initText)
         """.text
     }
 }
