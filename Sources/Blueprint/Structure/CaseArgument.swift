@@ -1,21 +1,21 @@
 //
-//  Value.swift
+//  CaseArgument.swift
 //
 //
-//  Created by Dr. Brandon Wiley on 1/24/24.
+//  Created by Dr. Brandon Wiley on 1/25/24.
 //
 
 import Foundation
 
 import Text
 
-public enum Value
+public enum CaseArgument
 {
-    case variable(Text)
-    case literal(LiteralValue)
+    case ignore
+    case assign(Text)
 }
 
-extension Value: Blueprint
+extension CaseArgument: Blueprint
 {
     public func transpile(_ target: Target, indentation: Int = 0) throws -> Text
     {

@@ -75,6 +75,16 @@ final class BlueprintTests: XCTestCase
         XCTAssertEqual(correct, result)
     }
 
+    func testExpression() throws
+    {
+        let blueprint = Expression.value(.literal(.number(1)))
+        let correct: Text = "1"
+
+        let result = try blueprint.transpile(.swift)
+
+        XCTAssertEqual(result, correct)
+    }
+
     func testFileHeader() throws
     {
         let filename = "Test"
@@ -192,6 +202,16 @@ final class BlueprintTests: XCTestCase
         XCTAssertEqual(result, correct)
     }
 
+    func testStatement() throws
+    {
+        let blueprint = Statement.assignment(RValue.variable("x"), .value(.literal(.number(1))))
+        let correct: Text = "x = 1"
+
+        let result = try blueprint.transpile(.swift)
+
+        XCTAssertEqual(result, correct)
+    }
+
     func testStructure() throws
     {
         let blueprint = Structure(passing: .reference, visibility: .public, name: "Test", inherits: [], implements: ["Codable"])
@@ -219,7 +239,7 @@ final class BlueprintTests: XCTestCase
 
     func testValue() throws
     {
-        let blueprint = Value.variable("x")
+        let blueprint = RValue.variable("x")
         let correct: Text = "x"
 
         let result = try blueprint.transpile(.swift)
