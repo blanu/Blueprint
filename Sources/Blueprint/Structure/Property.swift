@@ -11,6 +11,7 @@ import Text
 
 public struct Property
 {
+    public let annotation: Annotation?
     public let isStatic: Bool
     public let visibility: Visibility
     public let mutability: Mutability
@@ -18,8 +19,9 @@ public struct Property
     public let type: Type?
     public let initializer: Expression?
 
-    public init(isStatic: Bool = false, visibility: Visibility = .public, mutability: Mutability = .immutable, name: Text, type: Type? = nil, initializer: Expression? = nil)
+    public init(annotation: Annotation? = nil, isStatic: Bool = false, visibility: Visibility = .public, mutability: Mutability = .immutable, name: Text, type: Type? = nil, initializer: Expression? = nil)
     {
+        self.annotation = annotation
         self.isStatic = isStatic
         self.visibility = visibility
         self.mutability = mutability

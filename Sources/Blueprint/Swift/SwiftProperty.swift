@@ -49,6 +49,7 @@ extension Property
         }
 
         return """
+        \(try optional(self.annotation))
         \(i)\(staticText)\(vis)\(mut) \(self.name)\(typeText)\(initText)
         """.text
     }
