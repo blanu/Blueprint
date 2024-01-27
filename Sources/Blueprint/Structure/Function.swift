@@ -17,8 +17,9 @@ public struct Function
     public let parameters: [Parameter]
     public let returnType: Type
     public let throwing: Bool
+    public let statements: [Statement]
 
-    public init(mutating: Bool = false, visibility: Visibility = .public, name: Text, parameters: [Parameter] = [], returnType: Type = .void, throwing: Bool = false)
+    public init(mutating: Bool = false, visibility: Visibility = .public, name: Text, parameters: [Parameter] = [], returnType: Type = .void, throwing: Bool = false, statements: [Statement] = [])
     {
         self.mutating = mutating
         self.visibility = visibility
@@ -26,6 +27,7 @@ public struct Function
         self.parameters = parameters
         self.returnType = returnType
         self.throwing = throwing
+        self.statements = statements
     }
 }
 

@@ -16,14 +16,14 @@ extension Function
         let i = indent(indentation)
 
         return """
-        \(i)\(try self.makeInitHeader())
+        \(i)\(try self.makeHeader())
         \(i){
-        \(self.makeInitBody(indentation + 1))
+        \(try indentedBlock(self.statements, indentation))
         \(i)}
         """.text
     }
 
-    func makeInitHeader() throws -> Text
+    func makeHeader() throws -> Text
     {
         let mut: Text = self.mutating ? "mutating " : ""
         let vis: Text = try self.visibility.transpile(.swift, indentation: 0)
@@ -48,10 +48,5 @@ extension Function
         return """
         \(mut)\(vis)func \(self.name)(\(params))\(throwable)\(returnText)
         """.text
-    }
-
-    func makeInitBody(_ indentation: Int) -> Text
-    {
-        return ""
     }
 }
