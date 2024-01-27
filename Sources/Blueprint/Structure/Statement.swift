@@ -11,7 +11,7 @@ import Text
 
 public enum Statement
 {
-    case assignment(RValue, Expression)
+    case assignment(LValue, Expression)
     case blank
     case `break`
     case comment(Comment)
