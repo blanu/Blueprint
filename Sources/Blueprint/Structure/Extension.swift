@@ -15,13 +15,17 @@ public struct Extension
     public let implements: [Text]
     public let properties: [Property]
     public let functions: [Function]
+    public let structures: [Structure]
+    public let enumerations: [Enumeration]
 
-    public init(name: Text, implements: [Text] = [], properties: [Property] = [], functions: [Function] = [])
+    public init(name: Text, implements: [Text] = [], properties: [Property] = [], functions: [Function] = [], structures: [Structure] = [], enumerations: [Enumeration] = [])
     {
         self.name = name
         self.implements = implements
         self.properties = properties
         self.functions = functions
+        self.structures = structures
+        self.enumerations = enumerations
     }
 }
 

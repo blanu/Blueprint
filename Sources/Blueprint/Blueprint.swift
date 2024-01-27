@@ -25,23 +25,48 @@ public func indent(_ indentation: Int) -> Text
     return Text(fromUTF8String: String(array: array))
 }
 
-public func join(_ blueprints: [any Blueprint], _ indentation: Int = 0, _ separator: Text = "") throws -> Text
+public func join(_ blueprints: [any Blueprint], _ indentation: Int = 0, _ separator: Text = "", _ target: Target = .swift) throws -> Text
 {
-    return Text.join(try blueprints.map { try $0.transpile(.swift, indentation: indentation) }, separator)
+    if blueprints.isEmpty
+    {
+        return ""
+    }
+    else
+    {
+        return Text.join(try blueprints.map { try $0.transpile(target, indentation: indentation) }, separator)
+    }
 }
 
-public func list(_ blueprints: [any Blueprint]) throws -> Text
+public func list(_ blueprints: [any Blueprint], _ prefix: Text = "", _ target: Target = .swift) throws -> Text
 {
-    return try join(blueprints, 0, ", ")
+    if blueprints.isEmpty
+    {
+        return ""
+    }
+    else
+    {
+        return "\(prefix)\(try join(blueprints, 0, ", ", target))".text
+    }
 }
 
-public func block(_ blueprints: [any Blueprint], _ indentation: Int) throws -> Text
+public func block(_ blueprints: [any Blueprint], _ indentation: Int, _ target: Target = .swift) throws -> Text
 {
-    return try join(blueprints, indentation, "\n")
+    return try join(blueprints, indentation, "\n", target)
 }
 
-public func indentedBlock(_ blueprints: [any Blueprint], _ indentation: Int) throws -> Text
+public func indentedBlock(_ blueprints: [any Blueprint], _ indentation: Int, _ target: Target = .swift) throws -> Text
 {
-    return try join(blueprints, indentation + 1, "\n")
+    return try join(blueprints, indentation + 1, "\n", target)
 }
 
+public func optional(_ blueprint: Blueprint?, _ indentation: Int = 0, _ target: Target = .swift) throws -> Text
+{
+    if let blueprint
+    {
+        return try blueprint.transpile(target, indentation: indentation)
+    }
+    else
+    {
+        return ""
+    }
+}

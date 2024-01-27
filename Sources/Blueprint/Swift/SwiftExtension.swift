@@ -23,31 +23,13 @@ extension Extension
             implementsText = ": \(Text.join(self.implements, ", "))".text
         }
 
-        let propertyText: Text
-        if self.properties.isEmpty
-        {
-            propertyText = ""
-        }
-        else
-        {
-            propertyText = Text.join(try self.properties.map { try $0.transpile(.swift, indentation: indentation + 1) }, "\n")
-        }
-
-        let functionText: Text
-        if self.functions.isEmpty
-        {
-            functionText = ""
-        }
-        else
-        {
-            functionText = Text.join(try self.functions.map { try $0.transpile(.swift, indentation: indentation + 1) }, "\n")
-        }
-
         return """
         extension \(self.name)\(implementsText)
         {
-        \(propertyText)
-        \(functionText)
+        \(try indentedBlock(self.properties, indentation))
+        \(try indentedBlock(self.functions, indentation))
+        \(try indentedBlock(self.structures, indentation))
+        \(try indentedBlock(self.enumerations, indentation))
         }
         """.text
     }
