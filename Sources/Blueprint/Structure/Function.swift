@@ -11,14 +11,16 @@ import Text
 
 public struct Function
 {
+    public let mutating: Bool
     public let visibility: Visibility
     public let name: Text
     public let parameters: [Parameter]
     public let returnType: Type
     public let throwing: Bool
 
-    public init(visibility: Visibility = .public, name: Text, parameters: [Parameter] = [], returnType: Type = .void, throwing: Bool = false)
+    public init(mutating: Bool = false, visibility: Visibility = .public, name: Text, parameters: [Parameter] = [], returnType: Type = .void, throwing: Bool = false)
     {
+        self.mutating = mutating
         self.visibility = visibility
         self.name = name
         self.parameters = parameters

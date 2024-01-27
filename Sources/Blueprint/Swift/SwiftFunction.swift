@@ -25,6 +25,7 @@ extension Function
 
     func makeInitHeader() throws -> Text
     {
+        let mut: Text = self.mutating ? "mutating " : ""
         let vis: Text = try self.visibility.transpile(.swift, indentation: 0)
         let throwable = self.throwing ? " throws" : ""
         let params = try self.parameters.map
@@ -45,7 +46,7 @@ extension Function
         }
 
         return """
-        \(vis)func \(self.name)(\(params))\(throwable)\(returnText)
+        \(mut)\(vis)func \(self.name)(\(params))\(throwable)\(returnText)
         """.text
     }
 
