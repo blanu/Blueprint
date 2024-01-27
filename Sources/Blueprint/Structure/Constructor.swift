@@ -15,6 +15,14 @@ public struct Constructor
     public let parameters: [Parameter]
     public let failable: Bool
     public let throwing: Bool
+
+    public init(visibility: Visibility = .public, parameters: [Parameter] = [], failable: Bool = false, throwing: Bool = false)
+    {
+        self.visibility = visibility
+        self.parameters = parameters
+        self.failable = failable
+        self.throwing = throwing
+    }
 }
 
 extension Constructor: Blueprint
