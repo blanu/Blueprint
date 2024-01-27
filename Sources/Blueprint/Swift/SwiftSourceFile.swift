@@ -65,6 +65,16 @@ extension SourceFile
             functionText = Text.join(try self.functions.map { try $0.transpile(.swift, indentation: indentation) }, "\n")
         }
 
+        let extensionText: Text
+        if self.extensions.isEmpty
+        {
+            extensionText = ""
+        }
+        else
+        {
+            extensionText = try block(self.extensions, indentation)
+        }
+
         return """
         \(i)\(headerText)
         \(i)\(importText)

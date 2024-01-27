@@ -16,14 +16,16 @@ public struct SourceFile
     public let structs: [Structure]
     public let enums: [Enumeration]
     public let functions: [Function]
+    public let extensions: [Extension]
 
-    public init(header: FileHeader? = nil, imports: ImportSection? = nil, structs: [Structure] = [], enums: [Enumeration] = [], functions: [Function] = [])
+    public init(header: FileHeader? = nil, imports: ImportSection? = nil, structs: [Structure] = [], enums: [Enumeration] = [], functions: [Function] = [], extensions: [Extension] = [])
     {
         self.header = header
         self.imports = imports
         self.structs = structs
         self.enums = enums
         self.functions = functions
+        self.extensions = extensions
     }
 }
 
