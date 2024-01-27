@@ -13,7 +13,7 @@ public enum LiteralValue
 {
     case string(Text)
     case number(Int)
-    case array([LiteralValue])
+    case array([RValue])
     case dictionary(keys: [LiteralValue], values: [LiteralValue])
     case constructor(Type, [LiteralValue])
 }
