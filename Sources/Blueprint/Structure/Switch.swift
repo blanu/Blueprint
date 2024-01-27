@@ -15,7 +15,7 @@ public struct Switch
     public let cases: [SwitchCase]
     public let defaultCase: [Statement]?
 
-    public init(on: Expression, cases: [SwitchCase], defaultCase: [Statement]?)
+    public init(on: Expression, cases: [SwitchCase] = [], defaultCase: [Statement]? = nil)
     {
         self.on = on
         self.cases = cases

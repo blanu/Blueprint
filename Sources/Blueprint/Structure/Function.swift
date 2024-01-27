@@ -16,6 +16,15 @@ public struct Function
     public let parameters: [Parameter]
     public let returnType: Type
     public let throwing: Bool
+
+    public init(visibility: Visibility = .public, name: Text, parameters: [Parameter] = [], returnType: Type = .void, throwing: Bool = false)
+    {
+        self.visibility = visibility
+        self.name = name
+        self.parameters = parameters
+        self.returnType = returnType
+        self.throwing = throwing
+    }
 }
 
 extension Function: Blueprint

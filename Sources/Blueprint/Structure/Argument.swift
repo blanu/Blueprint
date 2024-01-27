@@ -13,6 +13,12 @@ public struct Argument
 {
     public let label: Text?
     public let value: RValue
+
+    public init(label: Text? = nil, value: RValue)
+    {
+        self.label = label
+        self.value = value
+    }
 }
 
 extension Argument: Blueprint

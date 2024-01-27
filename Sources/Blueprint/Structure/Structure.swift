@@ -19,7 +19,7 @@ public class Structure
     public var properties: [Property]
     public var functions: [Function]
 
-    public init(passing: PassingSemantics, visibility: Visibility, name: Text, inherits: [Text], implements: [Text], properties: [Property] = [], functions: [Function] = [])
+    public init(passing: PassingSemantics = .value, visibility: Visibility = .public, name: Text, inherits: [Text] = [], implements: [Text] = [], properties: [Property] = [], functions: [Function] = [])
     {
         self.passing = passing
         self.visibility = visibility

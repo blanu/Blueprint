@@ -16,7 +16,7 @@ public class Enumeration
     public let implements: [Text]
     public let cases: [Case]
 
-    public init(visibility: Visibility, name: Text, implements: [Text] = [], cases: [Case])
+    public init(visibility: Visibility = .public, name: Text, implements: [Text] = [], cases: [Case])
     {
         self.visibility = visibility
         self.name = name

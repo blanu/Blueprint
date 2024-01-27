@@ -15,7 +15,7 @@ public struct VariableDefinition
     public let name: Text
     public let type: Type?
 
-    public init(mutability: Mutability = .immutable, name: Text, type: Type?)
+    public init(mutability: Mutability = .immutable, name: Text, type: Type? = nil)
     {
         self.mutability = mutability
         self.name = name

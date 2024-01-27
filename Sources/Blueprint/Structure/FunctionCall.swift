@@ -15,6 +15,14 @@ public struct FunctionCall
     public let name: Text
     public let genericTypeParameters: [Type]
     public let arguments: [Argument]
+
+    public init(trying: Bool = false, name: Text, genericTypeParameters: [Type] = [], arguments: [Argument] = [])
+    {
+        self.trying = trying
+        self.name = name
+        self.genericTypeParameters = genericTypeParameters
+        self.arguments = arguments
+    }
 }
 
 extension FunctionCall: Blueprint

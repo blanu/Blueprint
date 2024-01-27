@@ -14,7 +14,7 @@ public struct SwitchCase
     public let name: Text
     public let arguments: [CaseArgument]
 
-    public init(name: Text, arguments: [CaseArgument])
+    public init(name: Text, arguments: [CaseArgument] = [])
     {
         self.name = name
         self.arguments = arguments
