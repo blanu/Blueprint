@@ -17,9 +17,10 @@ public class Structure
     public let inherits: [Text]
     public let implements: [Text]
     public var properties: [Property]
+    public let constructors: [Constructor]
     public var functions: [Function]
 
-    public init(passing: PassingSemantics = .value, visibility: Visibility = .public, name: Text, inherits: [Text] = [], implements: [Text] = [], properties: [Property] = [], functions: [Function] = [])
+    public init(passing: PassingSemantics = .value, visibility: Visibility = .public, name: Text, inherits: [Text] = [], implements: [Text] = [], properties: [Property] = [], constructors: [Constructor] = [], functions: [Function] = [])
     {
         self.passing = passing
         self.visibility = visibility
@@ -27,6 +28,7 @@ public class Structure
         self.inherits = inherits
         self.implements = implements
         self.properties = properties
+        self.constructors = constructors
         self.functions = functions
     }
 }

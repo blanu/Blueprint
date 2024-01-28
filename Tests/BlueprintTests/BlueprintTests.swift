@@ -204,7 +204,7 @@ final class BlueprintTests: XCTestCase
 
     func testStatement() throws
     {
-        let blueprint = Statement.assignment(RValue.variable("x"), .value(.literal(.number(1))))
+        let blueprint = Statement.assignment(LValue.variable("x"), .value(.literal(.number(1))))
         let correct: Text = "x = 1"
 
         let result = try blueprint.transpile(.swift)
