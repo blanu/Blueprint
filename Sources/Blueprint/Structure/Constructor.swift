@@ -15,13 +15,15 @@ public struct Constructor
     public let parameters: [Parameter]
     public let failable: Bool
     public let throwing: Bool
+    public let statements: [Statement]
 
-    public init(visibility: Visibility = .public, parameters: [Parameter] = [], failable: Bool = false, throwing: Bool = false)
+    public init(visibility: Visibility = .public, parameters: [Parameter] = [], failable: Bool = false, throwing: Bool = false, statements: [Statement] = [])
     {
         self.visibility = visibility
         self.parameters = parameters
         self.failable = failable
         self.throwing = throwing
+        self.statements = statements
     }
 }
 

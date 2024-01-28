@@ -18,7 +18,7 @@ extension Constructor
         return """
         \(i)\(try self.makeInitHeader())
         \(i){
-        \(self.makeInitBody(indentation + 1))
+        \(try indentedBlock(self.statements, indentation))
         \(i)}
         """.text
     }
@@ -38,10 +38,5 @@ extension Constructor
         return """
         \(vis)init\(fail)(\(params))\(throwable)
         """.text
-    }
-
-    func makeInitBody(_ indentation: Int) -> Text
-    {
-        return ""
     }
 }
