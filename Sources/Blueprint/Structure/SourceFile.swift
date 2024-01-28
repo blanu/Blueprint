@@ -17,8 +17,9 @@ public struct SourceFile
     public let enums: [Enumeration]
     public let functions: [Function]
     public let extensions: [Extension]
+    public let statements: [Statement]
 
-    public init(header: FileHeader? = nil, imports: ImportSection? = nil, structs: [Structure] = [], enums: [Enumeration] = [], functions: [Function] = [], extensions: [Extension] = [])
+    public init(header: FileHeader? = nil, imports: ImportSection? = nil, structs: [Structure] = [], enums: [Enumeration] = [], functions: [Function] = [], extensions: [Extension] = [], statements: [Statement] = [])
     {
         self.header = header
         self.imports = imports
@@ -26,6 +27,7 @@ public struct SourceFile
         self.enums = enums
         self.functions = functions
         self.extensions = extensions
+        self.statements = statements
     }
 }
 

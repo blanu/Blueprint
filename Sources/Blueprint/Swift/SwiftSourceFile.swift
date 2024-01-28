@@ -22,6 +22,7 @@ extension SourceFile
         \(i)\(try block(self.enums, indentation))
         \(i)\(try block(self.functions, indentation))
         \(i)\(try block(self.extensions, indentation))
+        \(i)\(try block(self.statements, indentation))
         """.text
     }
 }
