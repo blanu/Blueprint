@@ -19,6 +19,7 @@ public enum Statement
     case expression(Expression)
     case `return`
     case `throw`(Expression)
+    case  `while`(While)
 }
 
 extension Statement: Blueprint

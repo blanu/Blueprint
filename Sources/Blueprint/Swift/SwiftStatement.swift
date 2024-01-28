@@ -40,6 +40,9 @@ extension Statement
 
             case .throw(let expression):
                 return "\(i)throw \(try expression.transpile(.swift))".text
+
+            case .while(let loop):
+                return try loop.transpile(.swift, indentation: indentation)
         }
     }
 }
