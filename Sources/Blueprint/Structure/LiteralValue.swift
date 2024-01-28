@@ -11,6 +11,7 @@ import Text
 
 public enum LiteralValue
 {
+    case boolean(Bool)
     case string(Text)
     case number(Int)
     case array([RValue])

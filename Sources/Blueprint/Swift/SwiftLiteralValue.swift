@@ -18,6 +18,9 @@ extension LiteralValue
             case .array(let array):
                 return "[\(Text.join(try array.map { try $0.transpile(.swift) }, ", "))]".text
 
+            case .boolean(let boolean):
+                return boolean ? "true" : "false"
+
             case .constructor(let type, let parameters):
                 return "\(type)(\(Text.join(try parameters.map { try $0.transpile(.swift) }, ", ")))".text
 
