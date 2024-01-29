@@ -15,6 +15,9 @@ extension Expression
     {
         switch self
         {
+            case .cast(let cast):
+                return try cast.transpile(.swift)
+
             case .constructorCall(let call):
                 return try call.transpile(.swift)
 

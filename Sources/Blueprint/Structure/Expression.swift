@@ -11,6 +11,7 @@ import Text
 
 public indirect enum Expression
 {
+    case cast(Cast)
     case constructorCall(ConstructorCall)
     case functionCall(FunctionCall)
     case index(Index)
