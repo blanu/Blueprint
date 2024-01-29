@@ -14,6 +14,13 @@ public struct Branch
     public let condition: Expression
     public let statements: [Statement]
     public let elseClause: ElseClause?
+
+    public init(condition: Expression, statements: [Statement] = [], elseClause: ElseClause? = nil)
+    {
+        self.condition = condition
+        self.statements = statements
+        self.elseClause = elseClause
+    }
 }
 
 extension Branch: Blueprint
