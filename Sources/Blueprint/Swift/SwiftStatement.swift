@@ -38,6 +38,9 @@ extension Statement
             case .guard(let guardStatement):
                 return try guardStatement.transpile(.swift, indentation: indentation)
 
+            case .index(let index):
+                return try index.transpile(.swift, indentation: indentation)
+
             case .return:
                 return "\(i)return".text
 
