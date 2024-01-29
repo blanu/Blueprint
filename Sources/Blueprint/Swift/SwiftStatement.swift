@@ -23,6 +23,9 @@ extension Statement
             case .blank:
                 return ""
 
+            case .branch(let branch):
+                return try branch.transpile(.swift, indentation: indentation)
+
             case .break:
                 return "\(i)break".text
 

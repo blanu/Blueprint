@@ -13,6 +13,7 @@ public enum Statement
 {
     case assignment(LValue, Expression)
     case blank
+    case branch(Branch)
     case `break`
     case comment(Comment)
     case `continue`
