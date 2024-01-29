@@ -21,6 +21,7 @@ public enum Statement
     case `guard`(Guard)
     case `return`
     case `throw`(Expression)
+    case tryCatch(TryCatch)
     case  `while`(While)
 }
 
