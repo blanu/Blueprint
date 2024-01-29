@@ -18,7 +18,6 @@ public enum Statement
     case `continue`
     case expression(Expression)
     case `guard`(Guard)
-    case index(Index)
     case `return`
     case `throw`(Expression)
     case  `while`(While)

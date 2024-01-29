@@ -9,10 +9,11 @@ import Foundation
 
 import Text
 
-public enum Expression
+public indirect enum Expression
 {
-    case functionCall(FunctionCall)
     case constructorCall(ConstructorCall)
+    case functionCall(FunctionCall)
+    case index(Index)
     case math(MathExpression)
     case value(RValue)
 }
