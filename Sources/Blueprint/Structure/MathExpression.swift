@@ -9,8 +9,11 @@ import Foundation
 
 import Text
 
-public struct MathExpression
+public indirect enum MathExpression
 {
+    case infix(Operator, Expression, Expression)
+    case postfix(Operator, Expression)
+    case prefix(Operator, Expression)
 }
 
 extension MathExpression: Blueprint
