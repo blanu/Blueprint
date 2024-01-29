@@ -35,6 +35,9 @@ extension Statement
             case .expression(let expression):
                 return "\(i)\(try expression.transpile(.swift, indentation: indentation))".text
 
+            case .guard(let guardStatement):
+                return try guardStatement.transpile(.swift, indentation: indentation)
+
             case .return:
                 return "\(i)return".text
 

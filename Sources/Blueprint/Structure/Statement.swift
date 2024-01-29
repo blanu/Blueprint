@@ -17,6 +17,7 @@ public enum Statement
     case comment(Comment)
     case `continue`
     case expression(Expression)
+    case `guard`(Guard)
     case `return`
     case `throw`(Expression)
     case  `while`(While)
