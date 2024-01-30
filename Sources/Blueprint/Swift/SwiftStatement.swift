@@ -44,6 +44,9 @@ extension Statement
             case .return:
                 return "\(i)return".text
 
+            case .`switch`(let switchClause):
+                return try switchClause.transpile(.swift, indentation: indentation)
+
             case .throw(let expression):
                 return "\(i)throw \(try expression.transpile(.swift))".text
 

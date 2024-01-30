@@ -20,6 +20,7 @@ public enum Statement
     case expression(Expression)
     case `guard`(Guard)
     case `return`
+    case `switch`(Switch)
     case `throw`(Expression)
     case tryCatch(TryCatch)
     case  `while`(While)
