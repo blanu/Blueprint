@@ -13,11 +13,13 @@ public struct SwitchCase
 {
     public let name: Text
     public let arguments: [CaseArgument]
+    public let statements: [Statement]
 
-    public init(name: Text, arguments: [CaseArgument] = [])
+    public init(name: Text, arguments: [CaseArgument] = [], statements: [Statement] = [])
     {
         self.name = name
         self.arguments = arguments
+        self.statements = statements
     }
 }
 

@@ -15,9 +15,19 @@ extension SwitchCase
     {
         let i = indent(indentation)
 
+        let argumentsText: Text
+        if self.arguments.isEmpty
+        {
+            argumentsText = ""
+        }
+        else
+        {
+            argumentsText = "(\(try list(self.arguments)))".text
+        }
+
         return """
-        \(i)case .\(self.name):
-        \(Text.join(try self.arguments.map { try $0.transpile(.swift, indentation: indentation + 1) }, "\n"))
+        \(i)case .\(self.name)\(argumentsText):
+        \(try indentedBlock(self.statements, indentation))
         """.text
     }
 }
