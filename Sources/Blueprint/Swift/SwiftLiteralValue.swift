@@ -47,6 +47,9 @@ extension LiteralValue
 
             case .string(let string):
                 return "\"\(string)\"".text
+
+            case .enumCaseConstructor(let constructor):
+                return try constructor.transpile(.swift)
         }
     }
 }

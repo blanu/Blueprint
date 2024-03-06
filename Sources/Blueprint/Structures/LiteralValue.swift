@@ -17,6 +17,7 @@ public enum LiteralValue
     case array([RValue])
     case dictionary(keys: [LiteralValue], values: [LiteralValue])
     case constructor(Type, [LiteralValue])
+    case enumCaseConstructor(EnumCaseConstructor)
 }
 
 extension LiteralValue: Blueprint
