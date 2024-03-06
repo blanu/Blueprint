@@ -15,7 +15,7 @@ public struct EnumCaseConstructor
     public let name: Text
     public let values: [RValue]
 
-    public init(type: Text, name: Text, values: [RValue])
+    public init(type: Text, name: Text, values: [RValue] = [])
     {
         self.type = type
         self.name = name
