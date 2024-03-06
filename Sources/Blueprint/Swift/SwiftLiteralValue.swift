@@ -22,7 +22,7 @@ extension LiteralValue
                 return boolean ? "true" : "false"
 
             case .constructor(let type, let parameters):
-                return "\(type)(\(Text.join(try parameters.map { try $0.transpile(.swift) }, ", ")))".text
+                return "\(try type.transpile(.swift))(\(Text.join(try parameters.map { try $0.transpile(.swift) }, ", ")))".text
 
             case .dictionary(keys: let keys, values: let values):
                 guard keys.count == values.count else
