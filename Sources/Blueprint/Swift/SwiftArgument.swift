@@ -15,7 +15,7 @@ extension Argument
     {
         if let label = self.label
         {
-            return "\(label): try self.value.transpile(.swift, indentation: indentation)".text
+            return "\(label): \(try self.value.transpile(.swift, indentation: indentation))".text
         }
         else
         {
