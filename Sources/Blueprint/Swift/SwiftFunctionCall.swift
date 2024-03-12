@@ -23,6 +23,16 @@ extension FunctionCall
             tryingText = ""
         }
 
+        let asyncText: Text
+        if self.async
+        {
+            asyncText = "async "
+        }
+        else
+        {
+            asyncText = ""
+        }
+
         let genericsText: Text
         if self.genericTypeParameters.isEmpty
         {
@@ -44,7 +54,7 @@ extension FunctionCall
         }
 
         return """
-        \(tryingText)\(self.name)\(genericsText)(\(argumentsText))
+        \(tryingText)\(asyncText)\(self.name)\(genericsText)(\(argumentsText))
         """.text
     }
 }
