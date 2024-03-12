@@ -26,7 +26,7 @@ extension FunctionCall
         let asyncText: Text
         if self.async
         {
-            asyncText = "async "
+            asyncText = "await "
         }
         else
         {
