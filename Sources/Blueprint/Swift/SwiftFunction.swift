@@ -28,6 +28,7 @@ extension Function
         let mut: Text = self.mutating ? "mutating " : ""
         let vis: Text = try self.visibility.transpile(.swift, indentation: 0)
         let throwable = self.throwing ? " throws" : ""
+        let async = self.async ? " async" : ""
         let params = try self.parameters.map
         {
             param in
@@ -46,7 +47,7 @@ extension Function
         }
 
         return """
-        \(mut)\(vis)func \(self.name)(\(params))\(throwable)\(returnText)
+        \(mut)\(vis)func \(self.name)(\(params))\(async)\(throwable)\(returnText)
         """.text
     }
 }
