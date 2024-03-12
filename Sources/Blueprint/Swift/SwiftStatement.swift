@@ -33,7 +33,7 @@ extension Statement
                 return "\(i)\(try comment.transpile(.swift, indentation: indentation))".text
 
             case .continue:
-                return "\(i)break".text
+                return "\(i)continue".text
 
             case .expression(let expression):
                 return "\(i)\(try expression.transpile(.swift, indentation: indentation))".text
