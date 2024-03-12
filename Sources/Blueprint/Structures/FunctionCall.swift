@@ -12,13 +12,15 @@ import Text
 public struct FunctionCall
 {
     public let trying: Bool
+    public let async: Bool
     public let name: Text
     public let genericTypeParameters: [Type]
     public let arguments: [Argument]
 
-    public init(trying: Bool = false, name: Text, genericTypeParameters: [Type] = [], arguments: [Argument] = [])
+    public init(trying: Bool = false, async: Bool = false, name: Text, genericTypeParameters: [Type] = [], arguments: [Argument] = [])
     {
         self.trying = trying
+        self.async = async
         self.name = name
         self.genericTypeParameters = genericTypeParameters
         self.arguments = arguments
