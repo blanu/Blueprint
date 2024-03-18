@@ -18,6 +18,7 @@ public enum LiteralValue
     case dictionary(keys: [LiteralValue], values: [LiteralValue])
     case constructor(Type, [LiteralValue])
     case enumCaseConstructor(EnumCaseConstructor)
+    case closure(Closure)
 }
 
 extension LiteralValue: Blueprint

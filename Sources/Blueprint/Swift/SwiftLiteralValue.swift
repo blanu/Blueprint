@@ -50,6 +50,9 @@ extension LiteralValue
 
             case .enumCaseConstructor(let constructor):
                 return try constructor.transpile(.swift)
+
+            case .closure(let closure):
+                return try closure.transpile(.swift)
         }
     }
 }
