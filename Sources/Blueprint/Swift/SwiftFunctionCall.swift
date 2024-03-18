@@ -48,6 +48,30 @@ extension FunctionCall
         {
             argumentsText = ""
         }
+        else if self.arguments.count == 1
+        {
+            let argument = self.arguments[0]
+
+            switch argument.value
+            {
+                case .literal(let literal):
+                    switch literal
+                    {
+                        case .closure(let closure):
+                            argumentsText = try closure.transpile(.swift, indentation: indentation)
+
+                            return """
+                            \(tryingText)\(asyncText)\(self.name)\(genericsText)\(argumentsText)
+                            """.text
+
+                        default:
+                            argumentsText = try argument.transpile(.swift)
+                    }
+
+                default:
+                    argumentsText = try argument.transpile(.swift)
+            }
+        }
         else
         {
             argumentsText = Text.join(try self.arguments.map { try $0.transpile(.swift) }, ", ")
