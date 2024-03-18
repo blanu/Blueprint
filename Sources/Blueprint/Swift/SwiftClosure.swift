@@ -19,6 +19,7 @@ extension Closure
         \(i){
         \(Text.join(try self.statements.map { try $0.transpile(.swift, indentation: indentation + 1) }, "\n"))
         \(i)}
+        
         """.text
     }
 }
