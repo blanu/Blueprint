@@ -19,7 +19,7 @@ extension Expression
                 return try cast.transpile(.swift)
 
             case .chain(let chain):
-                return try chain.transpile(.swift)
+                return try chain.transpile(.swift, indentation: indentation)
 
             case .constructorCall(let call):
                 return try call.transpile(.swift)
