@@ -17,6 +17,7 @@ public indirect enum Expression
     case index(Index)
     case math(MathExpression)
     case value(RValue)
+    case chain(ChainedExpression)
 }
 
 extension Expression: Blueprint

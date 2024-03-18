@@ -18,6 +18,9 @@ extension Expression
             case .cast(let cast):
                 return try cast.transpile(.swift)
 
+            case .chain(let chain):
+                return try chain.transpile(.swift)
+
             case .constructorCall(let call):
                 return try call.transpile(.swift)
 
