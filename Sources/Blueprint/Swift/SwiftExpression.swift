@@ -25,7 +25,7 @@ extension Expression
                 return try call.transpile(.swift)
 
             case .functionCall(let call):
-                return try call.transpile(.swift)
+                return try call.transpile(.swift, indentation: indentation)
 
             case .index(let index):
                 return try index.transpile(.swift, indentation: indentation)
