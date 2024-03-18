@@ -16,7 +16,7 @@ extension ChainedExpression
         let i = indent(indentation)
 
         return """
-        \(i)\(try self.lvalue.transpile(.swift)).\(try self.rvalue.transpile(.swift))
+        \(i)\(try self.lvalue.transpile(.swift)).\(try self.rvalue.transpile(.swift, indentation: indentation))
         """.text
     }
 }
