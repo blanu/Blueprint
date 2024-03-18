@@ -61,7 +61,8 @@ extension FunctionCall
                             argumentsText = try closure.transpile(.swift, indentation: indentation)
 
                             return """
-                            \(tryingText)\(asyncText)\(self.name)\(genericsText)\(argumentsText)
+                            \(tryingText)\(asyncText)\(self.name)\(genericsText)
+                            \(argumentsText)
                             """.text
 
                         default:
