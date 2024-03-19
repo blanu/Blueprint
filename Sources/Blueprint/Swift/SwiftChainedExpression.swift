@@ -29,7 +29,7 @@ extension ChainedExpression
         let asyncText: Text
         if self.rvalue.async
         {
-            asyncText = "try "
+            asyncText = "await "
             suppressTryAwait = true
         }
         else
